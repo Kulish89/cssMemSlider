@@ -1,0 +1,25 @@
+@import "normalize.css";
+
+.slider__wrapper {
+  max-width: 1920px;
+  height: 100vh;
+  background-color: rgb(206, 203, 199);
+  margin: 0 auto;
+  padding: 10px;
+}
+.slider__content {
+  max-width: 1280px;
+  height: 100%;
+  background-color: grey;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+.slider__images {
+  width: 100%;
+}
+.slider__console {
+  width: 100%;
+}
