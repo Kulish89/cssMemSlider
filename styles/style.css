@@ -49,9 +49,19 @@
   display: flex;
   gap: 15px;
 }
+.slider__text-wrapper {
+  overflow-y: hidden;
+  height: 1.4375rem;
+}
 .slider__text {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: white;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+}
+text {
+  margin: 0.25rem;
 }
 @media (max-width: 768px) {
   .slider__console {
@@ -62,7 +72,7 @@
     justify-content: start;
     gap: 10px;
   }
-  .slider__text {
+  .slider__text-wrapper {
     align-self: start;
   }
 }
@@ -84,7 +94,6 @@
   align-items: center;
   justify-content: center;
   transition: all 0.5s;
-  cursor: default;
 }
 .circle img {
   width: 15px;
@@ -100,7 +109,7 @@
     height: 15px;
   }
   .circle img {
-    width: 9px;
+    width: 10px;
   }
 }
 .input {
@@ -110,18 +119,6 @@
 .slider__button:hover .circle {
   background-color: white;
   cursor: pointer;
-}
-@keyframes open {
-  0% {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-  }
-  100% {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-  }
 }
 
 #swich1:checked ~ .slider__console .slider__buttons #label1 .circle img,
@@ -133,14 +130,21 @@
   visibility: visible;
 }
 
-#swich1:not(:checked) ~ .slider__console .slider__text #text1,
-#swich2:not(:checked) ~ .slider__console .slider__text #text2,
-#swich3:not(:checked) ~ .slider__console .slider__text #text3,
-#swich4:not(:checked) ~ .slider__console .slider__text #text4,
-#swich5:not(:checked) ~ .slider__console .slider__text #text5 {
-  display: none;
+#swich1:checked ~ .slider__console .slider__text {
+  transform: translate(0, 0);
 }
-
+#swich2:checked ~ .slider__console .slider__text {
+  transform: translate(0, -20%);
+}
+#swich3:checked ~ .slider__console .slider__text {
+  transform: translate(0, -40%);
+}
+#swich4:checked ~ .slider__console .slider__text {
+  transform: translate(0, -60%);
+}
+#swich5:checked ~ .slider__console .slider__text {
+  transform: translate(0, -80%);
+}
 #swich1:checked ~ .slider__images #slider__images-wrap {
   background-repeat: no-repeat;
   background-size: contain;
@@ -170,13 +174,4 @@
   background-size: contain;
   background-image: url(../assets/images/5.jpg);
   background-position: center;
-}
-
-#swich1:checked ~ .slider__console .slider__text #text1,
-#swich2:checked ~ .slider__console .slider__text #text2,
-#swich3:checked ~ .slider__console .slider__text #text3,
-#swich4:checked ~ .slider__console .slider__text #text4,
-#swich5:checked ~ .slider__console .slider__text #text5 {
-  animation-name: open;
-  animation-duration: 1s;
 }
